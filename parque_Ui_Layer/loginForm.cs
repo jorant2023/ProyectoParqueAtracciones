@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
 using System.Data.SqlClient;
+using parque_Business_Layer;
+
 
 namespace parque_Ui_Layer
 {
@@ -21,10 +23,29 @@ namespace parque_Ui_Layer
 
         private void picboxLogin_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
+            //mantenimientoForm form = new mantenimientoForm();
+            //form.Show();
+            string username = textBoxUsuario.Text.Trim();
+            string pass = textBoxClave.Text.Trim();
+            if (ClaseUsuarioBusiness.comprobarPassword(username, pass))
+            {
+                string succestext = $"Bienvenido {username} , su password ingresado es correcto";
+                MessageBox.Show(succestext);
+                this.Hide();
+                mantenimientoForm form = new mantenimientoForm();
+                form.Show();
+            }
+            else
+            {
+                string failtext = $"Usuario y/o password son incorrectos";
+                MessageBox.Show(failtext);
+            }
+        }
 
-            mantenimientoForm form = new mantenimientoForm();
-            form.Show();
+        private void picboxSalir_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }

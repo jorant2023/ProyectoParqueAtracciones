@@ -24,5 +24,13 @@ namespace parque_Ui_Layer
             agregarUsuarioForm form = new agregarUsuarioForm();
             form.Show();
         }
+
+        private void buttonEditarUsuario_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            listarUsuariosForm form = new listarUsuariosForm();
+            form.Show();
+        }
     }
 }

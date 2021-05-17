@@ -11,7 +11,8 @@ namespace parque_Entity_Layer
         public int id_persona { get; set; }
         public int id_rol { get; set; }
         public string usuario { get; set; }
-        public string clave { get; set; }
+        public byte[] salt { get; set; }
+        public byte[] clave { get; set; }
 
     }
 }

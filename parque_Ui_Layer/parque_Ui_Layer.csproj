@@ -52,6 +52,12 @@
     <Compile Include="agregarUsuarioForm.Designer.cs">
       <DependentUpon>agregarUsuarioForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="listarUsuariosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="listarUsuariosForm.Designer.cs">
+      <DependentUpon>listarUsuariosForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="mantenimientoForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +74,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="agregarUsuarioForm.resx">
       <DependentUpon>agregarUsuarioForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="listarUsuariosForm.resx">
+      <DependentUpon>listarUsuariosForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mantenimientoForm.resx">
       <DependentUpon>mantenimientoForm.cs</DependentUpon>
@@ -116,6 +125,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\parque fondo log.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boton rojo glow-256.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

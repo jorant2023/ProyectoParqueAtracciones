@@ -44,7 +44,7 @@ namespace parque_Ui_Layer
             this.buttonConfirmarAgregar.Name = "buttonConfirmarAgregar";
             this.buttonConfirmarAgregar.Size = new System.Drawing.Size(125, 23);
             this.buttonConfirmarAgregar.TabIndex = 0;
-            this.buttonConfirmarAgregar.Text = "Grabar Nuevo Usuario";
+            this.buttonConfirmarAgregar.Text = "GRABAR USUARIO";
             this.buttonConfirmarAgregar.UseVisualStyleBackColor = true;
             this.buttonConfirmarAgregar.Click += new System.EventHandler(this.buttonConfirmarAgregar_Click);
             // 

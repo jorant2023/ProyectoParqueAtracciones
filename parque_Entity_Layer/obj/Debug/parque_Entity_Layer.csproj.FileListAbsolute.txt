@@ -3,3 +3,4 @@ C:\Users\Jorge Antonio\source\repos\ProyectoParqueAtracciones\parque_Entity_Laye
 C:\Users\Jorge Antonio\source\repos\ProyectoParqueAtracciones\parque_Entity_Layer\obj\Debug\parque_Entity_Layer.csproj.CoreCompileInputs.cache
 C:\Users\Jorge Antonio\source\repos\ProyectoParqueAtracciones\parque_Entity_Layer\obj\Debug\parque_Entity_Layer.dll
 C:\Users\Jorge Antonio\source\repos\ProyectoParqueAtracciones\parque_Entity_Layer\obj\Debug\parque_Entity_Layer.pdb
+C:\Users\Jorge Antonio\source\repos\ProyectoParqueAtracciones\parque_Entity_Layer\obj\Debug\parque_Entity_Layer.csprojAssemblyReference.cache

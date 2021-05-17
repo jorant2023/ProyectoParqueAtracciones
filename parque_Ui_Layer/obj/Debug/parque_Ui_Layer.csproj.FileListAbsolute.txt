@@ -17,3 +17,4 @@ C:\Users\Jorge Antonio\source\repos\ProyectoParqueAtracciones\parque_Ui_Layer\ob
 C:\Users\Jorge Antonio\source\repos\ProyectoParqueAtracciones\parque_Ui_Layer\obj\Debug\parque_Ui_Layer.agregarUsuarioForm.resources
 C:\Users\Jorge Antonio\source\repos\ProyectoParqueAtracciones\parque_Ui_Layer\bin\Debug\parque_Entity_Layer.dll
 C:\Users\Jorge Antonio\source\repos\ProyectoParqueAtracciones\parque_Ui_Layer\bin\Debug\parque_Entity_Layer.pdb
+C:\Users\Jorge Antonio\source\repos\ProyectoParqueAtracciones\parque_Ui_Layer\obj\Debug\parque_Ui_Layer.listarUsuariosForm.resources

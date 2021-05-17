@@ -9,7 +9,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Data;
 using System.Windows.Forms;
-
+using parque_Entity_Layer;
 namespace parque_Data_Layer
 {
     public class ClaseUsuarioData
@@ -41,6 +41,7 @@ namespace parque_Data_Layer
                     command.Parameters.Add("@idPer", SqlDbType.Int).Value = id_persona;
                     command.Parameters.Add("@idRol", SqlDbType.Int).Value = id_rol;
                     command.Parameters.Add("@user", SqlDbType.VarChar, 50).Value = usuario;
+                    command.Parameters.Add("@salt", SqlDbType.VarBinary).Value = salt;
                     command.Parameters.Add("@clave", SqlDbType.VarBinary).Value = hashedPassword;
                     command.Parameters.Add("@msg", SqlDbType.VarChar, 50).Value = "";
 
@@ -71,6 +72,68 @@ namespace parque_Data_Layer
 
             return isSaved;
         }
-        
+        public bool isValidPassword(string username, string password)
+        {
+            claseUsuario_Entity user = getUserFromDB(username);
+            bool isValid = false;
+
+            if (!string.IsNullOrEmpty(user.usuario))
+            {
+                byte[] hashedPassword = ClaseEncriptadoData.HashPasswordWithSalt(Encoding.UTF8.GetBytes(password), user.salt);
+
+                if (hashedPassword.SequenceEqual(user.clave))
+                    isValid = true;
+            }
+
+            return isValid;
+
+        }
+
+        private claseUsuario_Entity getUserFromDB(string username)
+        {
+            claseUsuario_Entity user = new claseUsuario_Entity();
+
+            var connectionString = ConfigurationManager.ConnectionStrings["ConexionBD"].ConnectionString;
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string saltSaved = "spSeleccionarUsuarioDesdeUsername";
+
+                using (SqlCommand command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.CommandText = saltSaved;
+                    command.Parameters.Add("@usuario", SqlDbType.VarChar, 50).Value = username;
+
+                    try
+                    {
+                        connection.Open();
+                        using (SqlDataReader oReader = command.ExecuteReader())
+                        {
+                            if (oReader.Read())
+                            {
+                                user.usuario = oReader["usuario"].ToString();
+                                user.salt = (byte[])oReader["salt"];
+                                user.clave = (byte[])oReader["clave"];
+                                user.id_persona = (int)oReader["id_persona"];
+                                user.id_rol = (int)oReader["id_rol"];
+                            }
+                        }
+                    }
+                    catch (SqlException ex)
+                    {
+                        string message = "" + ex;
+                        MessageBox.Show(message);
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
+            }
+
+            return user;
+        }
     }
 }

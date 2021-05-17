@@ -47,5 +47,11 @@
     <Compile Include="ClaseUsuarioData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\parque_Entity_Layer\parque_Entity_Layer.csproj">
+      <Project>{1db41cd2-c8de-4450-93e6-5ebf44f570b9}</Project>
+      <Name>parque_Entity_Layer</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

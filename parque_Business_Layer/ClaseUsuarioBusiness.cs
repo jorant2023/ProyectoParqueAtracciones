@@ -14,5 +14,10 @@ namespace parque_Business_Layer
             ClaseUsuarioData claseUsuarioData = new ClaseUsuarioData();
             return claseUsuarioData.insertarUsuario(id_persona,  id_rol,  usuario,  clave);
         }
+        public static bool comprobarPassword(string username, string password)
+        {
+            ClaseUsuarioData claseUsuarioData = new ClaseUsuarioData();
+            return claseUsuarioData.isValidPassword(username, password);
+        }
     }
 }

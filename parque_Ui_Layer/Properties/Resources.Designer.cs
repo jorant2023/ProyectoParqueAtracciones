@@ -63,6 +63,16 @@ namespace parque_Ui_Layer.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap boton_rojo_glow_256 {
+            get {
+                object obj = ResourceManager.GetObject("boton rojo glow-256", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap boton_verde_glow {
             get {
                 object obj = ResourceManager.GetObject("boton verde glow", resourceCulture);

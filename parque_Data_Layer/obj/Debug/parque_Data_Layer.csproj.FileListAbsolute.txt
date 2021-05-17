@@ -4,3 +4,6 @@ C:\Users\Jorge Antonio\source\repos\ProyectoParqueAtracciones\parque_Data_Layer\
 C:\Users\Jorge Antonio\source\repos\ProyectoParqueAtracciones\parque_Data_Layer\obj\Debug\parque_Data_Layer.dll
 C:\Users\Jorge Antonio\source\repos\ProyectoParqueAtracciones\parque_Data_Layer\obj\Debug\parque_Data_Layer.pdb
 C:\Users\Jorge Antonio\source\repos\ProyectoParqueAtracciones\parque_Data_Layer\obj\Debug\parque_Data_Layer.csprojAssemblyReference.cache
+C:\Users\Jorge Antonio\source\repos\ProyectoParqueAtracciones\parque_Data_Layer\bin\Debug\parque_Entity_Layer.dll
+C:\Users\Jorge Antonio\source\repos\ProyectoParqueAtracciones\parque_Data_Layer\bin\Debug\parque_Entity_Layer.pdb
+C:\Users\Jorge Antonio\source\repos\ProyectoParqueAtracciones\parque_Data_Layer\obj\Debug\parque_Data_Layer.csproj.CopyComplete
