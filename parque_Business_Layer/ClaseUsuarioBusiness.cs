@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 using parque_Data_Layer;
 
 namespace parque_Business_Layer
@@ -18,6 +19,12 @@ namespace parque_Business_Layer
         {
             ClaseUsuarioData claseUsuarioData = new ClaseUsuarioData();
             return claseUsuarioData.isValidPassword(username, password);
+        }
+
+        public static DataTable listarUsuariosBasico()
+        {
+            ClaseUsuarioData claseUsuarioData = new ClaseUsuarioData();
+            return claseUsuarioData.listarUsuariosBasico();
         }
     }
 }

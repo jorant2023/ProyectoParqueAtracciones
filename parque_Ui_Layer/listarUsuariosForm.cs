@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using parque_Business_Layer;
+
 
 namespace parque_Ui_Layer
 {
@@ -15,6 +17,26 @@ namespace parque_Ui_Layer
         public listarUsuariosForm()
         {
             InitializeComponent();
+
+        }
+
+        private void listarBasico()
+        {
+            
+                datagridListaUsuarios.DataSource = ClaseUsuarioBusiness.listarUsuariosBasico();
+
+        }
+
+        private void listarUsuariosForm_Load(object sender, EventArgs e)
+        {
+            this.listarBasico();
+            datagridListaUsuarios.AutoResizeColumns();
+
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Dispose();
         }
     }
 }

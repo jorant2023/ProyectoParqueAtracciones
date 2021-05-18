@@ -10,6 +10,8 @@ using System.Drawing;
 using System.Data;
 using System.Windows.Forms;
 using parque_Entity_Layer;
+
+
 namespace parque_Data_Layer
 {
     public class ClaseUsuarioData
@@ -135,5 +137,44 @@ namespace parque_Data_Layer
 
             return user;
         }
+
+        public DataTable listarUsuariosBasico()
+        {
+            DataTable tablaListar = new DataTable();
+            var connectionString = ConfigurationManager.ConnectionStrings["ConexionBD"].ConnectionString;
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string procedure = "spSeleccionarTodosUsuariosBasico";
+
+                using (SqlCommand command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.CommandText = procedure;
+                    
+                    try
+                    {
+                        connection.Open();
+                        using (SqlDataReader oReader = command.ExecuteReader())
+                        {
+                            tablaListar.Load(oReader);
+                           
+                        }
+                    }
+                    catch (SqlException ex)
+                    {
+                        string message = "" + ex;
+                        MessageBox.Show(message);
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
+            }
+            return tablaListar;
+        }
+
     }
 }
