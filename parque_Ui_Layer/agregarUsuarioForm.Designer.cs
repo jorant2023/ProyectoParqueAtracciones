@@ -35,12 +35,13 @@ namespace parque_Ui_Layer
             this.textBoxUsuario = new System.Windows.Forms.TextBox();
             this.textBoxIdRol = new System.Windows.Forms.TextBox();
             this.textBoxIdPersona = new System.Windows.Forms.TextBox();
+            this.buttonSalir = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonConfirmarAgregar
             // 
-            this.buttonConfirmarAgregar.Location = new System.Drawing.Point(188, 230);
+            this.buttonConfirmarAgregar.Location = new System.Drawing.Point(83, 227);
             this.buttonConfirmarAgregar.Name = "buttonConfirmarAgregar";
             this.buttonConfirmarAgregar.Size = new System.Drawing.Size(125, 23);
             this.buttonConfirmarAgregar.TabIndex = 0;
@@ -50,6 +51,7 @@ namespace parque_Ui_Layer
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.buttonSalir);
             this.panel1.Controls.Add(this.textBoxClave);
             this.panel1.Controls.Add(this.textBoxUsuario);
             this.panel1.Controls.Add(this.textBoxIdRol);
@@ -64,6 +66,7 @@ namespace parque_Ui_Layer
             // 
             this.textBoxClave.Location = new System.Drawing.Point(200, 178);
             this.textBoxClave.Name = "textBoxClave";
+            this.textBoxClave.PasswordChar = '*';
             this.textBoxClave.Size = new System.Drawing.Size(100, 20);
             this.textBoxClave.TabIndex = 4;
             // 
@@ -88,6 +91,16 @@ namespace parque_Ui_Layer
             this.textBoxIdPersona.Size = new System.Drawing.Size(100, 20);
             this.textBoxIdPersona.TabIndex = 1;
             // 
+            // buttonSalir
+            // 
+            this.buttonSalir.Location = new System.Drawing.Point(274, 227);
+            this.buttonSalir.Name = "buttonSalir";
+            this.buttonSalir.Size = new System.Drawing.Size(122, 23);
+            this.buttonSalir.TabIndex = 5;
+            this.buttonSalir.Text = "SALIR";
+            this.buttonSalir.UseVisualStyleBackColor = true;
+            this.buttonSalir.Click += new System.EventHandler(this.buttonSalir_Click);
+            // 
             // agregarUsuarioForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -110,5 +123,6 @@ namespace parque_Ui_Layer
         private System.Windows.Forms.TextBox textBoxUsuario;
         private System.Windows.Forms.TextBox textBoxIdRol;
         private System.Windows.Forms.TextBox textBoxIdPersona;
+        private System.Windows.Forms.Button buttonSalir;
     }
 }

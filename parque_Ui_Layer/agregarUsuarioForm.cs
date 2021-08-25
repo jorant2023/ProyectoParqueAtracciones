@@ -13,16 +13,54 @@ namespace parque_Ui_Layer
 {
     public partial class agregarUsuarioForm : Form
     {
-        public agregarUsuarioForm()
+        string usuario = null;
+        public agregarUsuarioForm(string username)
         {
-            InitializeComponent();
+            usuario = username;
+            if (usuario!=null)
+            {
+                
+                claseUsuario_Entity usuarioParaEditar = ClaseUsuarioBusiness.getUserFromDB(usuario);
+                InitializeComponent();
+                textBoxIdPersona.Text = usuarioParaEditar.id_persona.ToString();
+                textBoxIdRol.Text = usuarioParaEditar.id_rol.ToString();
+                textBoxUsuario.Text = usuarioParaEditar.usuario;
+                textBoxUsuario.ReadOnly = true;
+                textBoxClave.Text = "1234";
+            }
+            else InitializeComponent();
         }
 
         private void buttonConfirmarAgregar_Click(object sender, EventArgs e)
         {
-           
-            ClaseUsuarioBusiness.insertarUsuario(Convert.ToInt32(textBoxIdPersona.Text), Convert.ToInt32(textBoxIdRol.Text), textBoxUsuario.Text,textBoxClave.Text);
-            
+
+
+
+            if (usuario==null)
+            {
+                ClaseUsuarioBusiness.insertarUsuario(Convert.ToInt32(textBoxIdPersona.Text), Convert.ToInt32(textBoxIdRol.Text), textBoxUsuario.Text, textBoxClave.Text);
+                this.Hide();
+                listarUsuariosForm form = new listarUsuariosForm();
+                form.Show();
+            }
+            else
+            {
+                ClaseUsuarioBusiness.modificarUsuario(Convert.ToInt32(textBoxIdPersona.Text), Convert.ToInt32(textBoxIdRol.Text), textBoxUsuario.Text, textBoxClave.Text);
+                this.Hide();
+                listarUsuariosForm form = new listarUsuariosForm();
+                form.Show();
+
+            }
+
+
+
+        }
+
+        private void buttonSalir_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            listarUsuariosForm form = new listarUsuariosForm();
+            form.Show();
         }
     }
 }

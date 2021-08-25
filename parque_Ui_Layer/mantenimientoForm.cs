@@ -21,7 +21,7 @@ namespace parque_Ui_Layer
         {
             this.Hide();
 
-            agregarUsuarioForm form = new agregarUsuarioForm();
+            agregarUsuarioForm form = new agregarUsuarioForm(null);
             form.Show();
         }
 

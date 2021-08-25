@@ -37,6 +37,27 @@ namespace parque_Ui_Layer
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Dispose();
+            mantenimientoForm form = new mantenimientoForm();
+            form.Show();
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+                    
+            string username = datagridListaUsuarios.CurrentRow.Cells[0].Value.ToString();
+            this.Hide();
+
+            agregarUsuarioForm form = new agregarUsuarioForm(username);
+            form.Show();
+
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            string username = datagridListaUsuarios.CurrentRow.Cells[0].Value.ToString();
+            ClaseUsuarioBusiness.eliminarUsuario(username);
+            this.listarBasico();
+
         }
     }
 }

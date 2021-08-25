@@ -58,6 +58,12 @@
     <Compile Include="listarUsuariosForm.Designer.cs">
       <DependentUpon>listarUsuariosForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="loaderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="loaderForm.Designer.cs">
+      <DependentUpon>loaderForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="mantenimientoForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +83,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="listarUsuariosForm.resx">
       <DependentUpon>listarUsuariosForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="loaderForm.resx">
+      <DependentUpon>loaderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mantenimientoForm.resx">
       <DependentUpon>mantenimientoForm.cs</DependentUpon>

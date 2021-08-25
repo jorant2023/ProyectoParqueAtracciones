@@ -74,6 +74,107 @@ namespace parque_Data_Layer
 
             return isSaved;
         }
+        public bool modificarUsuario(int id_persona, int id_rol, string usuario, string clave)
+        {
+            bool isSaved = false;
+            byte[] salt = ClaseEncriptadoData.GenerateSalt();
+            var hashedPassword = ClaseEncriptadoData.HashPasswordWithSalt(Encoding.UTF8.GetBytes(clave), salt);
+            var connectionString = ConfigurationManager.ConnectionStrings["ConexionBD"].ConnectionString;
+
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+               
+                string updUser = "spModificarUsuario";
+
+                using (SqlCommand command = new SqlCommand())
+                {
+
+
+                    command.Connection = connection;
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.CommandText = updUser;
+                    command.Parameters.Add("@idPer", SqlDbType.Int).Value = id_persona;
+                    command.Parameters.Add("@idRol", SqlDbType.Int).Value = id_rol;
+                    command.Parameters.Add("@user", SqlDbType.VarChar, 50).Value = usuario;
+                    command.Parameters.Add("@salt", SqlDbType.VarBinary).Value = salt;
+                    command.Parameters.Add("@clave", SqlDbType.VarBinary).Value = hashedPassword;
+                    command.Parameters.Add("@msg", SqlDbType.VarChar, 50).Value = "";
+
+
+                    try
+                    {
+                        connection.Open();
+                        int recordsAffected = command.ExecuteNonQuery();
+                        if (recordsAffected > 0)
+                            isSaved = true;
+
+                        string message = "Cambios correctamente realizados";
+                        MessageBox.Show(message);
+
+                    }
+                    catch (SqlException ex)
+                    {
+
+                        string message = "" + ex;
+                        MessageBox.Show(message);
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
+            }
+
+            return isSaved;
+        }
+        public bool eliminarUsuario(string usuario)
+        {
+            bool isDeleted = false;
+            
+            var connectionString = ConfigurationManager.ConnectionStrings["ConexionBD"].ConnectionString;
+
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+
+                string updUser = "spEliminarUsuario";
+
+                using (SqlCommand command = new SqlCommand())
+                {
+
+
+                    command.Connection = connection;
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.CommandText = updUser;
+                    command.Parameters.Add("@user", SqlDbType.VarChar, 50).Value = usuario;
+
+                    try
+                    {
+                        connection.Open();
+                        int recordsAffected = command.ExecuteNonQuery();
+                        if (recordsAffected > 0)
+                            isDeleted = true;
+
+                        string message = "Usuario eliminado correctamente";
+                        MessageBox.Show(message);
+
+                    }
+                    catch (SqlException ex)
+                    {
+
+                        string message = "" + ex;
+                        MessageBox.Show(message);
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
+            }
+
+            return isDeleted;
+        }
         public bool isValidPassword(string username, string password)
         {
             claseUsuario_Entity user = getUserFromDB(username);
@@ -91,7 +192,7 @@ namespace parque_Data_Layer
 
         }
 
-        private claseUsuario_Entity getUserFromDB(string username)
+        public claseUsuario_Entity getUserFromDB(string username)
         {
             claseUsuario_Entity user = new claseUsuario_Entity();
 
